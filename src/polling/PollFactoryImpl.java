@@ -31,8 +31,8 @@ public class PollFactoryImpl extends UnicastRemoteObject implements PollFactory 
 				v++;
 				System.out.printf("Prodcution Completed!!\n----------------------------\nModel:\t\t" + myVehicle.getModel()  
 				+ "\nRegistration:\t152 - C - %d\n----------------------------\n", v);
+				done = true;
 			}
-			done = true;
 		}
 		else if (model.equalsIgnoreCase("van")) {
 			System.out.printf("\n\nProduction under way, please stand by...\n\n");
@@ -47,8 +47,8 @@ public class PollFactoryImpl extends UnicastRemoteObject implements PollFactory 
 				v++;
 				System.out.printf("Prodcution Completed!!\n----------------------------\nModel:\t\t" + myVehicle.getModel()  
 				+ "\nRegistration:\t152 - C - %d\n----------------------------\n", v);
+				done = true;
 			}
-			done = true;
 		}
 		else {
 			System.out.printf("Invalid option.");
@@ -59,7 +59,7 @@ public class PollFactoryImpl extends UnicastRemoteObject implements PollFactory 
 	public boolean doneYet() throws RemoteException {
 		temp = done;
 		done = false;
-		return temp;
+		return temp == true;
 	}
 	@Override
 	public IVehicle getVehicle() throws RemoteException {
