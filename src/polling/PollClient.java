@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 
 public class PollClient {
 	public static void main(String argv[]) {
-		Object vehicle = null;
 		PollFactory factory = null;
 		IVehicle iv = null;
 		boolean loop = true;
@@ -23,10 +22,10 @@ public class PollClient {
 				if (factory.doneYet()) {
 					iv = factory.getVehicle();
 					loop = false;
-//					if ((IVehicle)vehicle != null)
+					if ((IVehicle)iv != null)
 						System.out.printf("\nCompleted production of model: %s\n", iv.getModel());
-//					else
-//						System.out.println("\nInvalid choice!!\n");
+					else
+						System.out.println("\nInvalid choice!!\n");
 				}
 			}
 			catch (RemoteException e) {

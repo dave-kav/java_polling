@@ -63,6 +63,8 @@ public class PollFactoryImpl extends UnicastRemoteObject implements PollFactory 
 	}
 	@Override
 	public IVehicle getVehicle() throws RemoteException {
-		return myVehicle;
+		IVehicle temp = myVehicle;
+		myVehicle = null;
+		return temp;
 	}
 }
